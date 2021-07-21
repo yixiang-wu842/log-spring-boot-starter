@@ -1,0 +1,4 @@
+com\xiaobai\log\util\IpUtils.class
+com\xiaobai\log\aop\LogAspect.class
+com\xiaobai\log\DO\Log.class
+com\xiaobai\log\MylogSpringBootStarterAutoconfiguraionApplication.class
