@@ -37,7 +37,7 @@ public class LogAspect {
     /**
      * 设置哪些注解需要被记录日志，一般就是请求过来时记录
      */
-    private final Object[] needSaveLogAnntation = {Controller.class, RestController.class};
+    private final Class[] needSaveLogAnntation = {Controller.class, RestController.class};
 
     /**
      * 存放请求开始时间
@@ -106,7 +106,7 @@ public class LogAspect {
         MethodSignature methodSignature = (MethodSignature) signature;
         Class declaringType = methodSignature.getDeclaringType();
         for (int i = 0; i < needSaveLogAnntation.length; i++) {
-            Annotation annotation = declaringType.getAnnotation((Class) needSaveLogAnntation[i]);
+            Annotation annotation = declaringType.getAnnotation(needSaveLogAnntation[i]);
             if(annotation!= null){
                 return true;
             }
