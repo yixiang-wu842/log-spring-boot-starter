@@ -1,7 +1,10 @@
 package com.xiaobai.log.aop;
 
+import ch.qos.logback.core.db.dialect.HSQLDBDialect;
 import com.alibaba.fastjson.JSON;
 import com.xiaobai.log.DO.Log;
+import com.xiaobai.log.db.factory.DB;
+import com.xiaobai.log.db.factory.DataSourceFactory;
 import com.xiaobai.log.util.IpUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -9,6 +12,7 @@ import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
@@ -38,6 +42,9 @@ public class LogAspect {
      * 设置哪些注解需要被记录日志，一般就是请求过来时记录
      */
     private final Class[] needSaveLogAnntation = {Controller.class, RestController.class};
+
+    @Autowired
+    private DataSourceFactory dataSourceFactory;
 
     /**
      * 存放请求开始时间
@@ -85,7 +92,9 @@ public class LogAspect {
             log.setEndTime(endTime);
             log.setTimes(endTime - starTime);
             logger.info("请求日志为：" + log.toString());
-            //todo DB
+            //todo save DB 异步
+            DB dataSource = dataSourceFactory.getDataSource();
+            dataSource.executeSql("SELECT COUNT(1) from es_withdraw_apply");
         }
     }
 
