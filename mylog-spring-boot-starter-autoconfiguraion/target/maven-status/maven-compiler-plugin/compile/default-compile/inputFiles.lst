@@ -3,7 +3,9 @@ D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfi
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\enums\DbtypeEnum.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\factory\DB.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\DbSourceProperties.java
+D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\wrapper\LogWrapper.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\factory\impl\MysqlDataSource.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\MylogSpringBootStarterAutoconfiguraionApplication.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\factory\DataSourceFactory.java
+D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\db\wrapper\impl\LogWrapperImpl.java
 D:\meritLinkProjects\log-spring-boot-starter\mylog-spring-boot-starter-autoconfiguraion\src\main\java\com\xiaobai\log\util\IpUtils.java

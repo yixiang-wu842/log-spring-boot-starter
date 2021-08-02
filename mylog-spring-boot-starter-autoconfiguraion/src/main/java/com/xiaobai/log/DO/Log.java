@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class Log implements Serializable {
     /**
-     * 请求参数
+     * 请求方法名
      */
     private String methodName;
 
@@ -25,20 +25,23 @@ public class Log implements Serializable {
      */
     private String response;
 
+    /**
+     * 返回错误信息
+     */
     private String responseError;
 
     /**
-     * 开始时间
+     * 请求开始时间
      */
     private Long startTime;
 
     /**
-     * 结束时间
+     * 请求结束时间
      */
     private Long endTime;
 
     /**
-     * 耗时
+     * 请求总耗时
      * @return
      */
     private long times;
@@ -47,6 +50,16 @@ public class Log implements Serializable {
      * 请求IP
      */
     private String requestIp;
+
+    /**
+     * 创建者
+     */
+    private String createBy;
+
+    /**
+     * 创建时间
+     */
+    private long createTime;
 
     public String getMethodName() {
         return methodName;
@@ -112,6 +125,22 @@ public class Log implements Serializable {
         this.responseError = responseError;
     }
 
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
     @Override
     public String toString() {
         return "Log{" +
@@ -123,6 +152,8 @@ public class Log implements Serializable {
                 ", endTime=" + endTime +
                 ", times=" + times +
                 ", requestIp='" + requestIp + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createTime=" + createTime +
                 '}';
     }
 }

@@ -32,7 +32,8 @@ public class DataSourceFactory {
         if (DbtypeEnum.MYSQL.name().equals(dbType)) {
            return new MysqlDataSource(properties);
         } else if (DbtypeEnum.ORACLE.name().equals(dbType)) {
-            //todo
+            //sql 语句一致，所以不用单独写一份
+            return new MysqlDataSource(properties);
         }
         return null;
     }

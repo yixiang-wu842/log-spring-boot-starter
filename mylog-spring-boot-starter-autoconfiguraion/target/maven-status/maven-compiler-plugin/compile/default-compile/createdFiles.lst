@@ -1,4 +1,11 @@
+com\xiaobai\log\db\DbSourceProperties.class
+com\xiaobai\log\db\wrapper\impl\LogWrapperImpl.class
 com\xiaobai\log\util\IpUtils.class
-com\xiaobai\log\aop\LogAspect.class
+com\xiaobai\log\db\factory\DataSourceFactory.class
+com\xiaobai\log\db\wrapper\LogWrapper.class
+com\xiaobai\log\db\factory\DB.class
 com\xiaobai\log\DO\Log.class
 com\xiaobai\log\MylogSpringBootStarterAutoconfiguraionApplication.class
+com\xiaobai\log\enums\DbtypeEnum.class
+com\xiaobai\log\db\factory\impl\MysqlDataSource.class
+com\xiaobai\log\aop\LogAspect.class
