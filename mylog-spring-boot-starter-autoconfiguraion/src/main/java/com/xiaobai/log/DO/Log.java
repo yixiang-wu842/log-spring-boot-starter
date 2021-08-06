@@ -10,6 +10,8 @@ import java.io.Serializable;
  * @date 2021/7/1615:26
  */
 public class Log implements Serializable {
+
+    private int id;
     /**
      * 请求方法名
      */
@@ -60,6 +62,14 @@ public class Log implements Serializable {
      * 创建时间
      */
     private long createTime;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getMethodName() {
         return methodName;

@@ -2,6 +2,8 @@ package com.xiaobai.log.db.wrapper;
 
 import com.xiaobai.log.DO.Log;
 
+import java.util.List;
+
 /**
  * @author 萧白
  * @title: LogWrapper
@@ -10,6 +12,13 @@ import com.xiaobai.log.DO.Log;
  * @date 2021/8/211:02
  */
 public interface LogWrapper {
+
+    /**
+     * 查询
+     * @param log
+     * @return
+     */
+    List<Log> query(Log log);
 
     /**
      * 添加

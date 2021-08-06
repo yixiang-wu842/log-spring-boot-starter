@@ -7,6 +7,7 @@ import com.xiaobai.log.db.factory.DB;
 import com.xiaobai.log.db.factory.DataSourceFactory;
 import com.xiaobai.log.db.wrapper.LogWrapper;
 import com.xiaobai.log.util.IpUtils;
+import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
@@ -95,8 +96,17 @@ public class LogAspect {
             log.setCreateTime(endTime);
             logger.info("请求日志为：" + log.toString());
             //todo save DB 异步
-            logWrapper.insert(log);
+            otherThreadToInsert(log);
         }
+    }
+
+    private void otherThreadToInsert(Log log) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                logWrapper.insert(log);
+            }
+        }).start();
     }
 
     private HttpServletRequest getRequest() {

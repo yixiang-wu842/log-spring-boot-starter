@@ -27,33 +27,17 @@ import java.sql.SQLException;
  */
 public class MysqlDataSource extends DB {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     public MysqlDataSource(DbSourceProperties dbSourceProperties) {
-        getConnection(dbSourceProperties);
+       super(dbSourceProperties);
     }
 
     @Override
-    public Object getSqlResult(String type, Log log) throws SQLException {
-        StringBuilder sql = new StringBuilder();
-        SqlTypeEnum sqlTypeEnum = SqlTypeEnum.valueOf(type);
-        switch (sqlTypeEnum) {
-            case UPDATE:
-                int i = connection.prepareStatement(sql.toString()).executeUpdate();
-                return i == 1;
-            case QUERY:
-                ResultSet resultSet = connection.prepareStatement(sql.toString()).executeQuery();
-                break;
-            case INSERT:
-                String log_insert = SqlConstant.MYSQL_LOG_INSERT(log);
-                logger.debug("execute sql :"+log_insert);
-                return connection.prepareStatement(log_insert).execute();
-            case DELETE:
-                connection.prepareStatement(sql.toString()).execute();
-                break;
-            default:
-                return false;
-        }
-        return false;
+    protected String query() {
+        return SqlConstant.MYSQL_LOG_QUERY();
+    }
+
+    @Override
+    protected String insert(Log log) {
+        return SqlConstant.MYSQL_LOG_INSERT(log);
     }
 }

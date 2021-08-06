@@ -8,6 +8,8 @@ import com.xiaobai.log.enums.SqlTypeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author 萧白
  * @title: LogWrapperImpl
@@ -22,10 +24,17 @@ public class LogWrapperImpl implements LogWrapper {
     private DataSourceFactory dataSourceFactory;
 
     @Override
+    public List<Log> query(Log log) {
+        DB dataSource = dataSourceFactory.getDataSource();
+        return (List<Log>) dataSource.executeSql(SqlTypeEnum.QUERY.name(), log);
+    }
+
+    @Override
     public boolean insert(Log log) {
         DB dataSource = dataSourceFactory.getDataSource();
-        return (boolean)dataSource.executeSql(SqlTypeEnum.INSERT.name(),log);
+        return (boolean) dataSource.executeSql(SqlTypeEnum.INSERT.name(), log);
     }
+
 
     @Override
     public boolean update(Log log) {
